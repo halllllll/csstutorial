@@ -39,3 +39,39 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 .bread-crumbs li a:hover {
     text-decoration: underline;
 }
+
+/* ナビゲーション 適当にパクってきたやつ */
+/* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
+/*****NAV*****/
+nav{
+    width: 100%;
+    border-top: 1px solid orange;
+    border-bottom: 1px solid orange;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+nav ul{
+    width: 60%;
+    margin-left: 20%;
+}
+nav li{
+    width: calc(25% - 2px);
+    font-size: 110%;
+    letter-spacing: 5px;
+    font-weight: 400;
+    line-height: 45px;
+    border-left: 1px solid orange;
+    color: #313131;
+    cursor: pointer;
+    text-align: center;
+    float: left;
+}
+nav li:last-child{
+    border-right: 1px solid orange;
+}
+
+nav li:hover{
+    background-color: orange;
+    transition: background-color 0.5s ease-out;
+    color: #fff;
+}
