@@ -9,7 +9,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 }
 
 /* bread-crumbs ってのはパンくずリストとかいうやつらしい */
-/* とりあえずコピペ */
+/* とりあえずコピペ  https://saruwakakun.com/html-css/basic/breadcrumb */
 .bread-crumbs {
   padding-left:0;
   margin-left:0;
@@ -33,7 +33,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 
 .bread-crumbs li a {
     text-decoration: none;
-    color: #52b5ee;/*色*/
+    color: #a8a8a8;/*色*/
 }
 
 .bread-crumbs li a:hover {
