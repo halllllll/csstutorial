@@ -3,7 +3,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 
 /* ここにCSSを書いてデザインを入れよう */
 /* 全体を囲んでるやつ中央に */
-#container{
+.container{
     width: 960px;
     margin: 0 auto;
 }
