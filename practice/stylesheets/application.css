@@ -34,10 +34,47 @@ header.header{
   margin-left:0;
 }
 
-.bread-crumbs li{
-  display:inline;/*横に並ぶように*/
+/* ナビゲーション 適当にパクってきたやつ */
+/* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
+/* わからん  さっきと同じように要素名？class名でやってみる */
+.global-nav{
+    border-top: 1px solid orange;
+    border-bottom: 1px solid orange;
+    margin-bottom: 5px;
+    /*overflow: hidden;   ちょっとわからんので無視 */ 
+}
+/* flexbox的にulに指定したほうがいいらしい */
+.global-nav ul{
+    display: flex;
+    flex-flow: row;
+	justify-content: space-around;
+    margin: 0px;
+    padding: 6px;
+    list-style-type: none;
+}
+/* flexbox的にulに指定したほうがいいらしいので邪魔 */
+/*
+.global-nav li{
+  display:inline;/*横に並ぶように
   list-style: none;
-  font-weight: bold;/*太字*/
+  font-weight: bold;/*太字
+}
+*/
+
+/*
+これもflexboxに
+.bread-crumbs li{
+  display:inline;/*横に並ぶように
+  list-style: none;
+  font-weight: bold;/*太字
+}
+*/
+.bread-crumbs ol{
+    display: flex;
+    flex-flow: row;
+    margin: 0px;
+    padding: 6px;
+    /*list-style-type: none;*/
 }
 
 .bread-crumbs li:after{/* >を表示*/
@@ -52,35 +89,29 @@ header.header{
 
 .bread-crumbs li a {
     text-decoration: none;
-    color: #a8a8a8;/*色*/
+    color: #3aecc6;/*色*/
 }
 
 .bread-crumbs li a:hover {
     text-decoration: underline;
 }
 
-/* ナビゲーション 適当にパクってきたやつ */
-/* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
-/* わからん  さっきと同じように要素名？class名でやってみる */
-.global-nav{
-    width: 100%;
-    border-top: 1px solid orange;
-    border-bottom: 1px solid orange;
-    margin-bottom: 5px;
-    overflow: hidden;    
-}
-.global-nav li{
-  display:inline;/*横に並ぶように*/
-  list-style: none;
-  font-weight: bold;/*太字*/
-}
-
 /* top ad */
 /* 今までと同じ容量で横に並べる */
+/* というのはクソなのでflexboxにする */
 .top-ads{
     widows: 100px;
 }
+/*
+flexboxにするので無視
 .top-ads li{
-  display:inline;/*横に並ぶように*/
+  display:inline;/*横に並ぶように
   list-style: none;    
+}
+*/
+.top-ads ul{
+    display: flex;
+    flex-flow: row;
+    margin: 0px;
+    padding: 6px;    
 }
