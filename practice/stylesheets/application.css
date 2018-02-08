@@ -8,6 +8,13 @@ body{
     background: #aaaaaa;
 }
 
+/* headerを中央揃えに */
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* 全体を囲んでるやつ中央に */
 .container{
     width: 960px;
