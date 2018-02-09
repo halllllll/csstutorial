@@ -100,6 +100,7 @@ header.header{
 /* 今までと同じ容量で横に並べる */
 /* というのはクソなのでflexboxにする */
 .top-ads{
+    background: #cccccc;
     widows: 100px;
 }
 /*
@@ -112,6 +113,50 @@ flexboxにするので無視
 .top-ads ul{
     display: flex;
     flex-flow: row;
-    margin: 0px;
-    padding: 6px;    
+    /*justify-content: space-between;*/
+}
+.top-ads li.top-ads__item{
+    /*下の2つどっち使ってもimgがはみ出る*/
+    /*width: calc(100% /3);*/
+    /*width: 33.33%;*/
+    margin: 5px;
+    box-pack: justify;  /* なんだっけコレ */
+}
+.top-ads li.top-ads__item img{
+    /*width: 100px;*/
+    /* なんか謎だけどこれやったら中央揃えでボックス内に収まるように並んだ */
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+
+/*  body  */
+/* mainとasideを2カラムにしたい */
+/* mainとasideを内包するbodyクラスにdisplay: flexとすると自動的に横並びになる */
+/* らしいが、そのままだと右にasideが回ってしまったので */
+/* orderを使う */
+/* ついでにflexで割合を1:2（目視）くらいに */
+/* mainがなんかwidth内に収まらない。原因はわからん */
+/* flex-wrap:wrapすると折り返しできるらしい→効かない */
+/* ↑mainで指定していたせい？ */
+/* ↑bodyでやったら文字が回り込んでしまってダメ */
+/* word-break: break-allをmainにやってみる */
+/* 最初とおなじではみ出るのに変わりなし */
+/* flex-basis: autoするといけるらしい→効かない */
+
+/* flex-wrapのズレに合わせるように訂正する方向にシフト */
+.body{
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-basis: auto;*/
+}
+.aside{
+    order: 1;
+    flex: 1;
+}
+.main{
+    word-break: break-all;
+    order: 2;
+    flex: 2;
 }
