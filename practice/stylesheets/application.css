@@ -9,7 +9,8 @@ body{
 }
 
 /* headerを中央揃えに */
-header{
+/* headerが記事内にもあったのでclass名で指定に変更 */
+header.header{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +24,7 @@ header.header{
 
 /* 全体を囲んでるやつ中央に */
 .container{
-    width: 960px;
+    /*width: 960px;*/
     margin: 0 auto;
 }
 
@@ -144,19 +145,31 @@ flexboxにするので無視
 /* word-break: break-allをmainにやってみる */
 /* 最初とおなじではみ出るのに変わりなし */
 /* flex-basis: autoするといけるらしい→効かない */
+/* とかいろいろ考えたけど、chromeの開発ツールでみたときにぴったり1280pxになっていてこれ画像のぶんがたされているのだと気づいた。 */
+/* imgを伸縮にしたらいけたわ */
 
-/* flex-wrapのズレに合わせるように訂正する方向にシフト */
 .body{
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     /*flex-basis: auto;*/
 }
 .aside{
+    /*width: 300px;*/
     order: 1;
     flex: 1;
 }
 .main{
-    word-break: break-all;
+    /*word-break: break-all;*/
+    display: block;
     order: 2;
-    flex: 2;
+    flex: auto;
+    /*width: auto;*/
+}
+
+/* mainの中の写真がおそらく原因 */
+.main img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
 }
