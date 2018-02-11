@@ -53,29 +53,11 @@ header.header{
     padding: 6px;
     list-style-type: none;
 }
-/* flexbox的にulに指定したほうがいいらしいので邪魔 */
-/*
-.global-nav li{
-  display:inline;/*横に並ぶように
-  list-style: none;
-  font-weight: bold;/*太字
-}
-*/
-
-/*
-これもflexboxに
-.bread-crumbs li{
-  display:inline;/*横に並ぶように
-  list-style: none;
-  font-weight: bold;/*太字
-}
-*/
 .bread-crumbs ol{
     display: flex;
     flex-flow: row;
     margin: 0px;
     padding: 6px;
-    /*list-style-type: none;*/
 }
 
 .bread-crumbs li:after{/* >を表示*/
@@ -104,23 +86,15 @@ header.header{
     background: #cccccc;
     widows: 100px;
 }
-/*
-flexboxにするので無視
-.top-ads li{
-  display:inline;/*横に並ぶように
-  list-style: none;    
-}
-*/
 .top-ads ul{
     display: flex;
     flex-flow: row;
-    /*justify-content: space-between;*/
+    justify-content: space-around;
 }
 .top-ads li.top-ads__item{
     /*下の2つどっち使ってもimgがはみ出る*/
     /*width: calc(100% /3);*/
     /*width: 33.33%;*/
-    margin: 5px;
     box-pack: justify;  /* なんだっけコレ */
 }
 .top-ads li.top-ads__item img{
@@ -133,33 +107,18 @@ flexboxにするので無視
 }
 
 /*  body  */
-/* mainとasideを2カラムにしたい */
-/* mainとasideを内包するbodyクラスにdisplay: flexとすると自動的に横並びになる */
-/* らしいが、そのままだと右にasideが回ってしまったので */
-/* orderを使う */
-/* ついでにflexで割合を1:2（目視）くらいに */
-/* mainがなんかwidth内に収まらない。原因はわからん */
-/* flex-wrap:wrapすると折り返しできるらしい→効かない */
-/* ↑mainで指定していたせい？ */
-/* ↑bodyでやったら文字が回り込んでしまってダメ */
-/* word-break: break-allをmainにやってみる */
-/* 最初とおなじではみ出るのに変わりなし */
-/* flex-basis: autoするといけるらしい→効かない */
-/* とかいろいろ考えたけど、chromeの開発ツールでみたときにぴったり1280pxになっていてこれ画像のぶんがたされているのだと気づいた。 */
-/* imgを伸縮にしたらいけたわ */
-
 .body{
     display: flex;
-    /*flex-wrap: wrap;*/
-    /*flex-basis: auto;*/
 }
 .aside{
+    background: #656665;
     /*width: 300px;*/
     order: 1;
     flex: 1;
 }
 .main{
     /*word-break: break-all;*/
+    background: #dddddd;
     display: block;
     order: 2;
     flex: auto;
@@ -172,4 +131,19 @@ flexboxにするので無視
     height:auto;
     max-width:100%;
     max-height:100%;
+}
+
+/* local-nav */
+/* スライダーってどうするんだ */
+/* https://qiita.com/naru0504/items/ff0c77775223dc5a9148 */
+/* スライダーで調べたらわりとどうでもいいテックな記事ばかりヒットするがスクロールだと正解らしい  */
+
+nav.local-nav{
+    display: block;
+    position: relative;
+}
+
+.local-nav__items{
+    overflow-y: scroll;
+    height: 100px;  /* 適当 */
 }
