@@ -58,6 +58,7 @@ header.header{
     /* 中央揃えしたいのになぜかここに書いても意味がない */
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
 
 }
 /* なんかうまく背景色が広がってくれない（文字だけにかかる）のでbox-sizingしてみる */
