@@ -317,6 +317,8 @@ header h2.main-header__title{
 /* 各labelとinputを横に並べるため */
 .form-item{
     display: flex;
+    padding: 5px;
+    align-items: baseline;  /* ラベルとinput（とか）との上部を合わせる */
 }
 
 /* ラジオボタンとか最後の提出ボタンはulでやってるので */
@@ -326,12 +328,17 @@ header h2.main-header__title{
     justify-content: flex-start;    /* 各ボタンは左揃え */
 }
 /*
-ラジオボタンとかのひとつひとつがinputらしのでコレはダメ
+ラジオボタンとかのひとつひとつがinputらしのでコレ　↓ はダメ
 結局これもtypeごとに対応せざるを得ないのか。。。
 textarea, input, select{
     width: 300px;
 }
 */
 input[type="text"], input[type="password"], textarea, select, input[type="file"], .form-item__inline-items, .form-item__actions-items{
-    width: 300px;
+    width: 300px;   /* 決め打ち */
+}
+
+/* ラベルとinput（とか）との間を開ける */
+.form-item label{
+    padding: 10px;  /* 決め打ち */
 }
