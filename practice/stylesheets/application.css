@@ -270,6 +270,22 @@ header h2.main-header__title{
     content: '・';
 }
 
+.article__sub-sub-title{
+    font-size: 18px;    /* 毎度ながら決め打ち */
+    font-weight: bolder;
+}
+
+/* article > articvle__order-list */
+/* これはunorder listのように擬似要素をつかわなくてもいけた */
+.article__order-list{
+    line-height: 1.5;
+    padding: 0.5em 0;
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+.article__image{
+    padding: 10px 0px;
+}
 
 /* form */
 /* tableかなと思ったらモダンなcssではformでtableをつかわないらしい */
