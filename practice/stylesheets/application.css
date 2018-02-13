@@ -46,20 +46,15 @@ header.header{
     margin: 0px;
     /*padding: 10px;*/
     list-style-type: none;
-    /* 中央揃えしたいのになぜかここに書いても意味がない */
-    margin-right: auto;
-    margin-left: auto;
-
 }
 /* リンクっぽさをなくしたい */
-.global-nav li a{
+.global-nav a{
     text-decoration: none;
     display: block; /* これするとblock全体がボタンになる */
-    /* 中央揃えしたいのになぜかここに書いても意味がない */
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-
+    text-align: center; /* テキストが中央揃えになる */
+    line-height: 70px; /* 行の高さらしい　大きさは決め打ち */
+    height: 70px; /* 高さらしい　大きさは決め打ち */
+    color: #000000;
 }
 /* なんかうまく背景色が広がってくれない（文字だけにかかる）のでbox-sizingしてみる */
 /* →意味なし */
