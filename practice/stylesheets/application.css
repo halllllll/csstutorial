@@ -342,3 +342,31 @@ input[type="text"], input[type="password"], textarea, select, input[type="file"]
 .form-item label{
     padding: 10px;  /* 決め打ち */
 }
+
+/* footer */
+/* footer-nav, about-author, footer-copyrightがまとまっているが、 */
+/* footer-copyrightだけfooterにしたい。あとのふたつは横並びでいい。 */
+/* あとのふたつにwidthを指定してやってflex-wrapで潜り込ませる */
+footer{
+    background: #444444;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footer-nav{
+    width: 480px;   /* widthの半分。this.width/2すらもできんのかcssは */
+}
+
+section.about-author{
+    background: #ccc;
+    width: 480px;
+}
+
+small.footer-copyright{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+}
