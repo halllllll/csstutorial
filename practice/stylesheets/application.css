@@ -290,31 +290,48 @@ header h2.main-header__title{
 /* form */
 /* tableかなと思ったらモダンなcssではformでtableをつかわないらしい */
 
-.form{
-    background: #ffffff;
-    /*
+/*
+なぜかこれをやると .form-itemでのflexが効かなくなる
+.form div{
     display: flex;
     flex-direction: column;
-    */
-    /*justify-content: center;*/
-    /*align-items: flex-end;*/
+    align-items: flex-end;
 }
-.form-item label{
-    /*flex: 1 1 auto;*/
+*/
+/* divを指定しなければ（つまり、本来右に揃える必要のないtitleまでまとめて指定してやらないと）.form-itemのflexが効く */
+
+.form{
+    background: #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
-/* フォームのinput, textarea, なんかボタンとかそういうのだけに作用させたい */
+/* せめてform-itemは別で囲ってあればまだ可能であったが。。 */
+/* 仕方なくform__titleだけ左に飛ばす処理を噛ます */
+.form__title{
+    width: 100%;
+    text-align: left;
+}
+
+/* 各labelとinputを横に並べるため */
+.form-item{
+    display: flex;
+}
+
+/* ラジオボタンとか最後の提出ボタンはulでやってるので */
+/* form-item__inline-itemで指定するより一括でulでやったほうがいいだろう */
+.form-item ul{
+    display: flex;
+    justify-content: flex-start;    /* 各ボタンは左揃え */
+}
 /*
-input, textarea, select, .form-item__inline-items{
-    flex: 1 1 auto;
+ラジオボタンとかのひとつひとつがinputらしのでコレはダメ
+結局これもtypeごとに対応せざるを得ないのか。。。
+textarea, input, select{
     width: 300px;
 }
 */
-/* ボタン系がlabelも含め縦に並んでしまうのでなんとかする */
-/* とりあえずボタン類だけ横に並ばせる */
-/*
-.form-item__inline-items{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+input[type="text"], input[type="password"], textarea, select, input[type="file"], .form-item__inline-items, .form-item__actions-items{
+    width: 300px;
 }
-*/
