@@ -43,8 +43,6 @@ header.header{
     display: flex;
     flex-flow: row;
 	justify-content: space-around;
-    margin: 0px;
-    /*padding: 10px;*/
     list-style-type: none;
 }
 /* リンクっぽさをなくしたい */
@@ -55,20 +53,15 @@ header.header{
     line-height: 70px; /* 行の高さらしい　大きさは決め打ち */
     height: 70px; /* 高さらしい　大きさは決め打ち */
     color: #000000;
+    text-shadow: 0px 1px 3px #ffffff;   /* グラデーション 値は決め打ち */
 }
-/* なんかうまく背景色が広がってくれない（文字だけにかかる）のでbox-sizingしてみる */
-/* →意味なし */
 /* 素直にwidth指定してみる  */
 .global-nav__item{
-    /*box-sizing: border-box;*/
     width: 192px; /* この計算が面倒だからやりたいくないんだけど */
-    /* 中央揃え */
-    /* →なぜか意味なし */
-    margin-right: auto;
-    margin-left: auto;
 }
 
 /* 背景色を交互に変える */
+/* よくみるとグラデーションがついてるのでそれも対応 */
 .global-nav li:nth-child(2n-1){
     background: linear-gradient(#d6d6d6, #c2c2c2);
 }
