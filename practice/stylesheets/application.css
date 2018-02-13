@@ -31,6 +31,54 @@ header.header{
     /*width: 960px;*/
     margin: 0 auto;
 }
+/* ナビゲーション 適当にパクってきたやつ */
+/* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
+/* わからん  さっきと同じように要素名？class名でやってみる */
+.global-nav{
+    /* margin: 5px, 5px, 5px, 5p */
+    /*overflow: hidden;   ちょっとわからんので無視 */ 
+}
+/* flexbox的にulに指定したほうがいいらしい */
+.global-nav__items{
+    display: flex;
+    flex-flow: row;
+	justify-content: space-around;
+    margin: 0px;
+    /*padding: 10px;*/
+    list-style-type: none;
+    /* 中央揃えしたいのになぜかここに書いても意味がない */
+    margin-right: auto;
+    margin-left: auto;
+
+}
+/* リンクっぽさをなくしたい */
+.global-nav li a{
+    text-decoration: none;
+    display: block; /* これするとblock全体がボタンになる */
+    /* 中央揃えしたいのになぜかここに書いても意味がない */
+    margin-right: auto;
+    margin-left: auto;
+
+}
+/* なんかうまく背景色が広がってくれない（文字だけにかかる）のでbox-sizingしてみる */
+/* →意味なし */
+/* 素直にwidth指定してみる  */
+.global-nav__item{
+    /*box-sizing: border-box;*/
+    width: 192px; /* この計算が面倒だからやりたいくないんだけど */
+    /* 中央揃え */
+    /* →なぜか意味なし */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* 背景色を交互に変える */
+.global-nav li:nth-child(2n-1){
+    background: linear-gradient(#d6d6d6, #c2c2c2);
+}
+.global-nav li:nth-child(2n){
+    background: linear-gradient(#b7b7b7, #a2a2a2);
+}
 
 /* bread-crumbs ってのはパンくずリストとかいうやつらしい */
 /* とりあえずコピペ  https://saruwakakun.com/html-css/basic/breadcrumb */
@@ -39,24 +87,7 @@ header.header{
   margin-left:0;
 }
 
-/* ナビゲーション 適当にパクってきたやつ */
-/* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
-/* わからん  さっきと同じように要素名？class名でやってみる */
-.global-nav{
-    border-top: 1px solid orange;
-    border-bottom: 1px solid orange;
-    margin-bottom: 5px;
-    /*overflow: hidden;   ちょっとわからんので無視 */ 
-}
-/* flexbox的にulに指定したほうがいいらしい */
-.global-nav ul{
-    display: flex;
-    flex-flow: row;
-	justify-content: space-around;
-    margin: 0px;
-    padding: 6px;
-    list-style-type: none;
-}
+/* パンくずリスト */
 .bread-crumbs ol{
     display: flex;
     flex-flow: row;
