@@ -212,13 +212,11 @@ nav.local-nav{
 /* body.main */
 .main{
     /*word-break: break-all;*/
-    background: #dddddd;
     display: block;
     order: 2;
     flex: auto;
     /*width: auto;*/
 }
-
 /* mainの中の写真がおそらく原因 */
 .main img{
     width:auto;
@@ -226,6 +224,39 @@ nav.local-nav{
     max-width:100%;
     max-height:100%;
 }
+
+
+/* タイトル */
+header.main-header h2{
+    background: #eeeeef;
+    padding: 10px;
+}
+header h2.main-header__title{
+    font-size: 48px;
+    /*font-weight: bold;*/
+}
+
+/* body > main > article */
+.article{
+    padding: 10px;
+    background: #dddddd;
+}
+.article__title{
+    font-size: 32px;
+    font-weight: bolder;
+}
+.article p{
+    line-height: 1.5;   /* 行間  適当 */
+    padding: 0.5em 0;   /* 段落でpadding */
+}
+.article__strong{
+    font-weight: bold;
+}
+.article__sub-title{
+    font-size: 28px;
+    font-weight: bolder;
+}
+
 
 /* form */
 /* tableかなと思ったらモダンなcssではformでtableをつかわないらしい */
