@@ -28,8 +28,16 @@ header.header{
 }
 
 /* 全体を囲んでるやつ中央に */
+/* 影をつけてみる */
 .container{
     margin: 0 auto;
+    /* 第四プロパティの広がりってのが第三プロパティのぼかし具合とくらべてよくわからんので二回呼んで逆方向にも同じだけつけることにする */
+    /*　そしたら最後のやつしか適用されなかった
+    box-shadow: 3px 0px 5px 1px #8f8f8f;
+    box-shadow: -3px 0px 5px 1px #8f8f8f;
+    */
+    /* どうやら縦横を0にすると全方向に広がるらしいのでそれする */
+    box-shadow: 0px 0px 5px 5px #8f8f8f;
 }
 /* ナビゲーション 適当にパクってきたやつ */
 /* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
