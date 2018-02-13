@@ -111,6 +111,7 @@ header.header{
 /* top ad */
 /* 今までと同じ容量で横に並べる */
 /* というのはクソなのでflexboxにする */
+/* 上下左右同じ幅だけ空けているようだ */
 .top-ads{
     background: #cccccc;
     widows: 100px;
@@ -119,15 +120,13 @@ header.header{
     display: flex;
     flex-flow: row;
     justify-content: space-around;
+    padding: 5px;
 }
 .top-ads li.top-ads__item{
-    /*下の2つどっち使ってもimgがはみ出る*/
-    /*width: calc(100% /3);*/
-    /*width: 33.33%;*/
-    box-pack: justify;  /* なんだっけコレ */
+    fallback: justify;  /* なんだっけコレ */
+    padding: 5px;
 }
 .top-ads li.top-ads__item img{
-    /*width: 100px;*/
     /* なんか謎だけどこれやったら中央揃えでボックス内に収まるように並んだ */
     width:auto;
     height:auto;
