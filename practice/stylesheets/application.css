@@ -292,4 +292,29 @@ header h2.main-header__title{
 
 .form{
     background: #ffffff;
+    /*
+    display: flex;
+    flex-direction: column;
+    */
+    /*justify-content: center;*/
+    /*align-items: flex-end;*/
 }
+.form-item label{
+    /*flex: 1 1 auto;*/
+}
+/* フォームのinput, textarea, なんかボタンとかそういうのだけに作用させたい */
+/*
+input, textarea, select, .form-item__inline-items{
+    flex: 1 1 auto;
+    width: 300px;
+}
+*/
+/* ボタン系がlabelも含め縦に並んでしまうのでなんとかする */
+/* とりあえずボタン類だけ横に並ばせる */
+/*
+.form-item__inline-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+*/
