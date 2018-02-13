@@ -7,7 +7,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 body{
     background: #aaaaaa;
     /* 幅固定っぽいので幅固定して中央揃え */
-    width: 960px;
+    max-width: 960px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -18,17 +18,17 @@ header.header{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #999;
 }
 
 /* タイトルを装飾 */
 header.header{
-    font-size: 5.0rem;
+    font-size: 5.0rem;  /* 決め打ちとりあえず */
     text-shadow: 1px 1px 0 #e4f1ff;
 }
 
 /* 全体を囲んでるやつ中央に */
 .container{
-    /*width: 960px;*/
     margin: 0 auto;
 }
 /* ナビゲーション 適当にパクってきたやつ */
@@ -46,6 +46,7 @@ header.header{
     list-style-type: none;
 }
 /* リンクっぽさをなくしたい */
+/* 以下はこれが役に立った http://teamsanta.info/web/3574/ */
 .global-nav a{
     text-decoration: none;
     display: block; /* これするとblock全体がボタンになる */
@@ -62,6 +63,7 @@ header.header{
 
 /* 背景色を交互に変える */
 /* よくみるとグラデーションがついてるのでそれも対応 */
+/* こんな無駄な書き方見るとforで回したくなる... */
 .global-nav li:nth-child(2n-1){
     background: linear-gradient(#d6d6d6, #c2c2c2);
 }
@@ -74,29 +76,32 @@ header.header{
 .bread-crumbs {
   padding-left:0;
   margin-left:0;
+  /* backgroundはここでいいのかな */
+  background: linear-gradient(#636363, #565656);
 }
 
 /* パンくずリスト */
 .bread-crumbs ol{
     display: flex;
     flex-flow: row;
-    margin: 0px;
-    padding: 6px;
+    padding: 10px;
 }
+
+.bread-crumbs li a {
+    /*display: block;*/
+    text-decoration: none;
+    color: #e5e5e5;/*色*/
+}
+
 
 .bread-crumbs li:after{/* >を表示*/
   content: '>';
-  padding: 0 3px;
-  color: #555;
+  padding: 10px 10px;
+  color: #b0b0b0;
 }
 
 .bread-crumbs li:last-child:after{
   content: '';
-}
-
-.bread-crumbs li a {
-    text-decoration: none;
-    color: #3aecc6;/*色*/
 }
 
 .bread-crumbs li a:hover {
