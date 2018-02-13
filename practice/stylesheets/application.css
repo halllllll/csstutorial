@@ -6,6 +6,10 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 /* 一番うしろのbackground */
 body{
     background: #aaaaaa;
+    /* 幅固定っぽいので幅固定して中央揃え */
+    width: 960px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* headerを中央揃えに */
@@ -146,4 +150,11 @@ nav.local-nav{
 .local-nav__items{
     overflow-y: scroll;
     height: 100px;  /* 適当 */
+}
+
+/* form */
+/* tableかなと思ったらモダンなcssではformでtableをつかわないらしい */
+
+.form{
+    background: #ffffff;
 }
