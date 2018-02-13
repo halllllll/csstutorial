@@ -180,15 +180,33 @@ header.header{
 /* スライダーってどうするんだ */
 /* https://qiita.com/naru0504/items/ff0c77775223dc5a9148 */
 /* スライダーで調べたらわりとどうでもいいテックな記事ばかりヒットするがスクロールだと正解らしい  */
-
 nav.local-nav{
     display: block;
     position: relative;
+    padding: 10px;
+    border-radius: 50px;
 }
 
 .local-nav__items{
     overflow-y: scroll;
-    height: 100px;  /* 適当 */
+    height: 140px;  /* 適当 */
+    border-radius: 8px; /* 適当、なんか汚い。。? */
+}
+/* borderradiusしても先頭と末尾の要素が効かない問題、 */
+/* 要素にmarginしていたが、これをborderで表すことにする */
+/* スクロールバー消せるらしい */
+.local-nav__items::-webkit-scrollbar{
+    display: none;
+}
+.local-nav__item{
+    padding: 10px;
+    /*margin: 2px;*/
+    border: solid 1px #656665;
+    background: #999999;
+}
+.local-nav__item a{
+    color: #ffffff;
+    text-decoration: none;
 }
 
 /* body.main */
