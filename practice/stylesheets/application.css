@@ -130,11 +130,11 @@ header.header{
     justify-content: space-around;
     padding: 5px;
 }
-.top-ads li.top-ads__item{
+.top-ads__item{
     fallback: justify;  /* なんだっけコレ */
     padding: 5px;
 }
-.top-ads li.top-ads__item img{
+.top-ads__item img{
     /* なんか謎だけどこれやったら中央揃えでボックス内に収まるように並んだ */
     width:auto;
     height:auto;
@@ -146,23 +146,30 @@ header.header{
 .body{
     display: flex;
 }
+/* aside */
+/* aside ad とaside navがある */
 .aside{
     background: #656665;
-    /*width: 300px;*/
+    width: auto;
     order: 1;
     flex: 1;
 }
-.main{
-    /*word-break: break-all;*/
-    background: #dddddd;
-    display: block;
-    order: 2;
-    flex: auto;
-    /*width: auto;*/
-}
 
-/* mainの中の写真がおそらく原因 */
-.main img{
+/* aside > ad */
+/* topadと違って各img間の間が狭い */
+/* paddingを、bottomだけ0にするっていうめんどくさいことをやって解決 */
+.aside-ads__items{
+    display: flex;  /* なんかli間がpaddingされなかったんだけどflexにしたらいけた */
+    flex-flow: column;
+    /*justify-content: space-around; これでいけるやんと思いきやいけなかった*/
+    padding: 5px;
+}
+.aside-ads__item{
+    fallback: justify;
+    padding: 5px 5px 0px;
+}
+.aside-ads__item li img{
+    /* 自動伸縮　よくわかってないけど */
     width:auto;
     height:auto;
     max-width:100%;
@@ -182,6 +189,24 @@ nav.local-nav{
 .local-nav__items{
     overflow-y: scroll;
     height: 100px;  /* 適当 */
+}
+
+/* body.main */
+.main{
+    /*word-break: break-all;*/
+    background: #dddddd;
+    display: block;
+    order: 2;
+    flex: auto;
+    /*width: auto;*/
+}
+
+/* mainの中の写真がおそらく原因 */
+.main img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
 }
 
 /* form */
