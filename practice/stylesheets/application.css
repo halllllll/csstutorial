@@ -256,6 +256,19 @@ header h2.main-header__title{
     font-size: 28px;
     font-weight: bolder;
 }
+.article__unorder-list{
+    line-height: 1.5;   /* 行間  適当 */
+    padding: 0.5em 0;   /* 段落でpadding */
+    /* 下のやつやったら黒丸の位置がなんかおかしいので別の方法でやる */
+    /* list-style-type: disc;  /* 黒丸 */
+    /* list-style-position: inside;  /* これしないと黒丸がはみ出る */
+}
+/* これで↑の問題を解決 */
+.article__unorder-list-item::before{
+    display: inline-block;
+    vertical-align: middle;
+    content: '・';
+}
 
 
 /* form */
