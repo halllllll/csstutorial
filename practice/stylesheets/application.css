@@ -23,8 +23,11 @@ header.header{
 
 /* タイトルを装飾 */
 header.header{
-    font-size: 5.0rem;  /* 決め打ちとりあえず */
-    text-shadow: 1px 1px 0 #e4f1ff;
+    /*font-size: 5.0rem;  /* 決め打ちとりあえず */
+    font-size: 48px;
+    padding: 48px;
+    text-shadow: 0px 1px 4px #d6d6d6;
+    font-weight: bold;
 }
 
 /* 全体を囲んでるやつ中央に */
@@ -227,15 +230,37 @@ nav.local-nav{
 
 
 /* タイトル */
-header.main-header h2{
+.main-header__title{
     background: #eeeeef;
     padding: 10px;
-}
-header h2.main-header__title{
     font-size: 48px;
     /*font-weight: bold;*/
-}
 
+}
+/* 装飾について基本的なとこ（親にrerativeして子（ターゲット）にabsoluteする）はhttps://qiita.com/junya/items/da1b16b7590b48812bf4 が参考になった */
+/* 装飾についてデザイン的なとこは（https://nkmrkisk.com/archives/415）が参考になった */
+.main-header{
+    position: relative; /*　装飾用 */
+    /* box-shadowすると右上の装飾のとこの輪郭が浮いてしまう */
+    /* が、よくみるとborderっぽいのでそれでやる */
+    border-bottom: 1px solid #c2c2c2;
+
+}
+.main-header__title::after{
+	content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* 以下二行は右上にやる用 */
+    top: 0;
+    right: 0;
+    border-top: 15px solid #cccccc;
+    border-right: 15px solid #cccccc;
+    border-bottom: 15px solid #aaaaaa;
+    border-left: 15px solid #aaaaaa;
+    /* 下方向にだけshadow　http://chroma.hatenablog.com/entry/2013/09/25/172809 */
+    box-shadow: 0px 3px 2px -2px #444444;
+}
 /* body > main > article */
 .article{
     padding: 10px;
@@ -347,6 +372,10 @@ input[type="text"], input[type="password"], textarea, select, input[type="file"]
 /* footer-nav, about-author, footer-copyrightがまとまっているが、 */
 /* footer-copyrightだけfooterにしたい。あとのふたつは横並びでいい。 */
 /* あとのふたつにwidthを指定してやってflex-wrapで潜り込ませる */
+
+/* とやってみたものの、windowのwidthがnav+authorを下回るとauthorが下に落ちるので */
+/* どうしようか。。。 */
+
 footer{
     background: #444444;
     display: flex;
@@ -356,11 +385,26 @@ footer{
 
 .footer-nav{
     width: 480px;   /* widthの半分。this.width/2すらもできんのかcssは */
+    flex-grow: 1;
 }
+.footer-nav ul{
+    display: flex;
+}
+.footer-nav__item::before{
+    padding: 5px;
+    content: '>';
+    color: #ffffff;
+}
+.footer-nav__link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 
 section.about-author{
     background: #ccc;
     width: 480px;
+    flex-grow: 1;
 }
 
 small.footer-copyright{
