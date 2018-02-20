@@ -2,3 +2,415 @@
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}body {	line-height: 1;}ol, ul {	list-style: none;}blockquote, q {	quotes: none;}blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}table {	border-collapse: collapse;	border-spacing: 0;}
 
 /* ここにCSSを書いてデザインを入れよう */
+
+/* 一番うしろのbackground */
+body{
+    background: #aaaaaa;
+    /* 幅固定っぽいので幅固定して中央揃え */
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* headerを中央揃えに */
+/* headerが記事内にもあったのでclass名で指定に変更 */
+header.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #999;
+}
+
+/* タイトルを装飾 */
+header.header{
+    /*font-size: 5.0rem;  /* 決め打ちとりあえず */
+    font-size: 48px;
+    padding: 48px;
+    text-shadow: 0px 1px 4px #d6d6d6;
+    font-weight: bold;
+}
+
+/* 全体を囲んでるやつ中央に */
+/* 影をつけてみる */
+.container{
+    margin: 0 auto;
+    /* 第四プロパティの広がりってのが第三プロパティのぼかし具合とくらべてよくわからんので二回呼んで逆方向にも同じだけつけることにする */
+    /*　そしたら最後のやつしか適用されなかった
+    box-shadow: 3px 0px 5px 1px #8f8f8f;
+    box-shadow: -3px 0px 5px 1px #8f8f8f;
+    */
+    /* どうやら縦横を0にすると全方向に広がるらしいのでそれする */
+    box-shadow: 0px 0px 5px 5px #8f8f8f;
+}
+/* ナビゲーション 適当にパクってきたやつ */
+/* https://qiita.com/Y_ASAMOTO/items/90afe7d24467020c17f0 */
+/* わからん  さっきと同じように要素名？class名でやってみる */
+.global-nav{
+    /* margin: 5px, 5px, 5px, 5p */
+    /*overflow: hidden;   ちょっとわからんので無視 */ 
+}
+/* flexbox的にulに指定したほうがいいらしい */
+.global-nav__items{
+    display: flex;
+    flex-flow: row;
+	justify-content: space-around;
+    list-style-type: none;
+}
+/* リンクっぽさをなくしたい */
+/* 以下はこれが役に立った http://teamsanta.info/web/3574/ */
+.global-nav a{
+    text-decoration: none;
+    display: block; /* これするとblock全体がボタンになる */
+    text-align: center; /* テキストが中央揃えになる */
+    line-height: 70px; /* 行の高さらしい　大きさは決め打ち */
+    height: 70px; /* 高さらしい　大きさは決め打ち */
+    color: #000000;
+    text-shadow: 0px 1px 3px #ffffff;   /* グラデーション 値は決め打ち */
+}
+/* 素直にwidth指定してみる  */
+.global-nav__item{
+    width: 192px; /* この計算が面倒だからやりたいくないんだけど */
+}
+
+/* 背景色を交互に変える */
+/* よくみるとグラデーションがついてるのでそれも対応 */
+/* こんな無駄な書き方見るとforで回したくなる... */
+.global-nav li:nth-child(2n-1){
+    background: linear-gradient(#d6d6d6, #c2c2c2);
+}
+.global-nav li:nth-child(2n){
+    background: linear-gradient(#b7b7b7, #a2a2a2);
+}
+
+/* bread-crumbs ってのはパンくずリストとかいうやつらしい */
+/* とりあえずコピペ  https://saruwakakun.com/html-css/basic/breadcrumb */
+.bread-crumbs {
+  padding-left:0;
+  margin-left:0;
+  /* backgroundはここでいいのかな */
+  background: linear-gradient(#636363, #565656);
+}
+
+/* パンくずリスト */
+.bread-crumbs ol{
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+}
+
+.bread-crumbs li a {
+    /*display: block;*/
+    text-decoration: none;
+    color: #e5e5e5;/*色*/
+}
+
+
+.bread-crumbs li:after{/* >を表示*/
+  content: '>';
+  padding: 10px 10px;
+  color: #b0b0b0;
+}
+
+.bread-crumbs li:last-child:after{
+  content: '';
+}
+
+.bread-crumbs li a:hover {
+    text-decoration: underline;
+}
+
+/* top ad */
+/* 今までと同じ容量で横に並べる */
+/* というのはクソなのでflexboxにする */
+/* 上下左右同じ幅だけ空けているようだ */
+.top-ads{
+    background: #cccccc;
+    widows: 100px;
+}
+.top-ads ul{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    padding: 5px;
+}
+.top-ads__item{
+    fallback: justify;  /* なんだっけコレ */
+    padding: 5px;
+}
+.top-ads__item img{
+    /* なんか謎だけどこれやったら中央揃えでボックス内に収まるように並んだ */
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+
+/*  body  */
+.body{
+    display: flex;
+}
+/* aside */
+/* aside ad とaside navがある */
+.aside{
+    background: #656665;
+    width: auto;
+    order: 1;
+    flex: 1;
+}
+
+/* aside > ad */
+/* topadと違って各img間の間が狭い */
+/* paddingを、bottomだけ0にするっていうめんどくさいことをやって解決 */
+.aside-ads__items{
+    display: flex;  /* なんかli間がpaddingされなかったんだけどflexにしたらいけた */
+    flex-flow: column;
+    /*justify-content: space-around; これでいけるやんと思いきやいけなかった*/
+    padding: 5px;
+}
+.aside-ads__item{
+    fallback: justify;
+    padding: 5px 5px 0px;
+}
+.aside-ads__item li img{
+    /* 自動伸縮　よくわかってないけど */
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+
+/* local-nav */
+/* スライダーってどうするんだ */
+/* https://qiita.com/naru0504/items/ff0c77775223dc5a9148 */
+/* スライダーで調べたらわりとどうでもいいテックな記事ばかりヒットするがスクロールだと正解らしい  */
+nav.local-nav{
+    display: block;
+    position: relative;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.local-nav__items{
+    overflow-y: scroll;
+    height: 140px;  /* 適当 */
+    border-radius: 8px; /* 適当、なんか汚い。。? */
+}
+/* borderradiusしても先頭と末尾の要素が効かない問題、 */
+/* 要素にmarginしていたが、これをborderで表すことにする */
+/* スクロールバー消せるらしい */
+.local-nav__items::-webkit-scrollbar{
+    display: none;
+}
+.local-nav__item{
+    padding: 10px;
+    /*margin: 2px;*/
+    border: solid 1px #656665;
+    background: #999999;
+}
+.local-nav__item a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* body.main */
+.main{
+    /*word-break: break-all;*/
+    display: block;
+    order: 2;
+    flex: auto;
+    /*width: auto;*/
+}
+/* mainの中の写真がおそらく原因 */
+.main img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+}
+
+
+/* タイトル */
+.main-header__title{
+    background: #eeeeef;
+    padding: 10px;
+    font-size: 48px;
+    /*font-weight: bold;*/
+
+}
+/* 装飾について基本的なとこ（親にrerativeして子（ターゲット）にabsoluteする）はhttps://qiita.com/junya/items/da1b16b7590b48812bf4 が参考になった */
+/* 装飾についてデザイン的なとこは（https://nkmrkisk.com/archives/415）が参考になった */
+.main-header{
+    position: relative; /*　装飾用 */
+    /* box-shadowすると右上の装飾のとこの輪郭が浮いてしまう */
+    /* が、よくみるとborderっぽいのでそれでやる */
+    border-bottom: 1px solid #c2c2c2;
+
+}
+.main-header__title::after{
+	content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* 以下二行は右上にやる用 */
+    top: 0;
+    right: 0;
+    border-top: 15px solid #cccccc;
+    border-right: 15px solid #cccccc;
+    border-bottom: 15px solid #aaaaaa;
+    border-left: 15px solid #aaaaaa;
+    /* 下方向にだけshadow　http://chroma.hatenablog.com/entry/2013/09/25/172809 */
+    box-shadow: 0px 3px 2px -2px #444444;
+}
+/* body > main > article */
+.article{
+    padding: 10px;
+    background: #dddddd;
+}
+.article__title{
+    font-size: 32px;
+    font-weight: bolder;
+}
+.article p{
+    line-height: 1.5;   /* 行間  適当 */
+    padding: 0.5em 0;   /* 段落でpadding */
+}
+.article__strong{
+    font-weight: bold;
+}
+.article__sub-title{
+    font-size: 28px;
+    font-weight: bolder;
+}
+.article__unorder-list{
+    line-height: 1.5;   /* 行間  適当 */
+    padding: 0.5em 0;   /* 段落でpadding */
+    /* 下のやつやったら黒丸の位置がなんかおかしいので別の方法でやる */
+    /* list-style-type: disc;  /* 黒丸 */
+    /* list-style-position: inside;  /* これしないと黒丸がはみ出る */
+}
+/* これで↑の問題を解決 */
+.article__unorder-list-item::before{
+    display: inline-block;
+    vertical-align: middle;
+    content: '・';
+}
+
+.article__sub-sub-title{
+    font-size: 18px;    /* 毎度ながら決め打ち */
+    font-weight: bolder;
+}
+
+/* article > articvle__order-list */
+/* これはunorder listのように擬似要素をつかわなくてもいけた */
+.article__order-list{
+    line-height: 1.5;
+    padding: 0.5em 0;
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+.article__image{
+    padding: 10px 0px;
+}
+
+/* form */
+/* tableかなと思ったらモダンなcssではformでtableをつかわないらしい */
+
+/*
+なぜかこれをやると .form-itemでのflexが効かなくなる
+.form div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+*/
+/* divを指定しなければ（つまり、本来右に揃える必要のないtitleまでまとめて指定してやらないと）.form-itemのflexが効く */
+
+.form{
+    background: #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+/* せめてform-itemは別で囲ってあればまだ可能であったが。。 */
+/* 仕方なくform__titleだけ左に飛ばす処理を噛ます */
+.form__title{
+    width: 100%;
+    text-align: left;
+}
+
+/* 各labelとinputを横に並べるため */
+.form-item{
+    display: flex;
+    padding: 5px;
+    align-items: baseline;  /* ラベルとinput（とか）との上部を合わせる */
+}
+
+/* ラジオボタンとか最後の提出ボタンはulでやってるので */
+/* form-item__inline-itemで指定するより一括でulでやったほうがいいだろう */
+.form-item ul{
+    display: flex;
+    justify-content: flex-start;    /* 各ボタンは左揃え */
+}
+/*
+ラジオボタンとかのひとつひとつがinputらしのでコレ　↓ はダメ
+結局これもtypeごとに対応せざるを得ないのか。。。
+textarea, input, select{
+    width: 300px;
+}
+*/
+input[type="text"], input[type="password"], textarea, select, input[type="file"], .form-item__inline-items, .form-item__actions-items{
+    width: 300px;   /* 決め打ち */
+}
+
+/* ラベルとinput（とか）との間を開ける */
+.form-item label{
+    padding: 10px;  /* 決め打ち */
+}
+
+/* footer */
+/* footer-nav, about-author, footer-copyrightがまとまっているが、 */
+/* footer-copyrightだけfooterにしたい。あとのふたつは横並びでいい。 */
+/* あとのふたつにwidthを指定してやってflex-wrapで潜り込ませる */
+
+/* とやってみたものの、windowのwidthがnav+authorを下回るとauthorが下に落ちるので */
+/* どうしようか。。。 */
+
+footer{
+    background: #444444;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footer-nav{
+    width: 480px;   /* widthの半分。this.width/2すらもできんのかcssは */
+    flex-grow: 1;
+}
+.footer-nav ul{
+    display: flex;
+}
+.footer-nav__item::before{
+    padding: 5px;
+    content: '>';
+    color: #ffffff;
+}
+.footer-nav__link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+section.about-author{
+    background: #ccc;
+    width: 480px;
+    flex-grow: 1;
+}
+
+small.footer-copyright{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+}
