@@ -497,11 +497,13 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
 }
 
 .footer-nav{
-    width: 480px;   /* widthの半分。this.width/2すらもできんのかcssは */
-    flex-grow: 1;
+    /*width: 480px;   /* widthの半分。this.width/2すらもできんのかcssは */
+    /* flexitemはwidhではなくflexで幅を決めるらしい */
+    flex: 0 0 400px;
 }
 .footer-nav ul{
     display: flex;
@@ -519,8 +521,15 @@ footer{
 
 section.about-author{
     background: #ccc;
-    width: 480px;
-    flex-grow: 1;
+    flex: 100;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+section.about-author img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
 }
 
 small.footer-copyright{
@@ -530,4 +539,3 @@ small.footer-copyright{
     color: #ffffff;
     text-align: center;
 }
-/* test */
