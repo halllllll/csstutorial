@@ -535,6 +535,10 @@ section.about-author img{
     border-radius: 50%;
     width: 100px;
     height: 100px;
+    float: left;/* テキストを回り込ませる。テキストが落ちるのを防ぐためdlでoverflow:hiddenする */
+}
+.about-author__descriptions{
+    overflow: hidden;
 }
 
 small.footer-copyright{
