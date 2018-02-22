@@ -497,16 +497,21 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
 }
 
 .footer-nav{
     /*width: 480px;   /* widthの半分。this.width/2すらもできんのかcssは */
     /* flexitemはwidhではなくflexで幅を決めるらしい */
-    flex: 0 0 400px;
+    flex: 100;
+    padding: 20px;
 }
-.footer-nav ul{
-    display: flex;
+.footer-nav__items{
+    display: table-cell; /* 複数リストを横並び、それぞれの要素は縦並び */
+    width: 150px;
+}
+.footer-nav__item{
+    padding: 5px;
+    font-size: 14px;
 }
 .footer-nav__item::before{
     padding: 5px;
@@ -521,10 +526,10 @@ footer{
 
 section.about-author{
     background: #ccc;
-    flex: 100;
+    flex: 0 0 400px;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
 }
 section.about-author img{
     border-radius: 50%;
