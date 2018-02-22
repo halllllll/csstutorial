@@ -531,6 +531,10 @@ section.about-author{
     padding: 10px;
     margin: 20px;
 }
+.about-author__title{
+    font-weight: bold;
+    padding: 5px;
+}
 section.about-author img{
     border-radius: 50%;
     width: 100px;
@@ -540,6 +544,21 @@ section.about-author img{
 .about-author__descriptions{
     overflow: hidden;
 }
+
+/* dlはdescription listとかいうらしい */
+.about-author__term{
+    float: left;
+    clear: left;
+    width: 80px;   /* 適当に決め打ち */
+    padding: 5px;   /* ddに継承してくれないのでddと合わせて合計10pxになるようにしてやる */
+    text-align: end;
+}
+.about-author__description{
+    padding: 5px;
+    overflow: hidden;
+}
+
+
 
 small.footer-copyright{
     display: block;
