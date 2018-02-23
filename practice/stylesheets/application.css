@@ -542,6 +542,8 @@ textarea{
     border: solid 1px #999999;
 }
 
+/* select box */
+
 /* ラベルとinput（とか）との間を開ける */
 .form-item label{
     padding: 10px;  /* 決め打ち */
