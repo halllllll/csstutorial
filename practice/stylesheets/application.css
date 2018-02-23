@@ -520,7 +520,27 @@ textarea{
 }
 
 /* radio button */
-
+.form-item__inline-items{
+    /*
+    flexを使って均等に振り分けようとしたらなぜかまったく動かなかったので諦める
+    display: flex;
+    justify-content:  space-between;
+    */
+}
+/* あとnth-child使って最後のli要素以外marginしようとしても無駄だったのでそれも諦める */
+.form-item__radio{
+    background: #eeeeee;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: solid 1px #999999;
+}
+/* どうせチェックボックスも同じなのでまとめりゃよかったな */
+.form-item__checkbox{
+    background: #dddddd;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: solid 1px #999999;
+}
 
 /* ラベルとinput（とか）との間を開ける */
 .form-item label{
