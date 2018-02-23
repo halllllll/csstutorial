@@ -509,6 +509,18 @@ textarea, input, select{
 input[type="text"], input[type="password"], textarea, select, input[type="file"], .form-item__inline-items, .form-item__actions-items{
     width: 300px;   /* 決め打ち */
 }
+/* 記入欄の装飾 */
+input[type="text"], input[type="password"], textarea{
+    border-radius: 5px;
+    /* inputにborder-radiusするとchrome上ではなんかよくわからん影ができるが適当なborderを指定してやると消えるらしい textareaには現れないけど分けるのが面倒なので */
+    border: 1px solid #ccc
+}
+textarea{
+    height: 200px;
+}
+
+/* radio button */
+
 
 /* ラベルとinput（とか）との間を開ける */
 .form-item label{
