@@ -451,8 +451,22 @@ nav.local-nav{
 /* せめてform-itemは別で囲ってあればまだ可能であったが。。 */
 /* 仕方なくform__titleだけ左に飛ばす処理を噛ます */
 .form__title{
-    width: 100%;
-    text-align: left;
+    /* flexitemではwidthは使わないらしい */
+    /* そのまんまpaddingとかしてもなぜか無駄だったのでmargin:autoをかます */
+    /*width: 100%;*/
+    margin-right: auto;
+    /* 装飾用にpadding */
+    padding-left: 50px;
+    font-weight: bold;
+    position: relative;
+}
+.form__title::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 40px; /* paddingのぶんなのでこれはわかる */
+    height: 20px; /* ガイドが一切ないしtextheightも取得できないので完全に決め打ち... */
+    border: solid 3px #444444;
 }
 
 /* 各labelとinputを横に並べるため */
