@@ -464,9 +464,26 @@ nav.local-nav{
     position: absolute;
     content: "";
     left: 0;
-    width: 40px; /* paddingのぶんなのでこれはわかる */
+    width: 31px; /* paddingのぶんなのでこれはわかる */
     height: 20px; /* ガイドが一切ないしtextheightも取得できないので完全に決め打ち... */
-    border: solid 3px #444444;
+    /* なので以降のパラメータは完全にすべて決め打ち 無駄すぎる */
+    border: solid 2px #000000;
+}
+.form__title::after{
+    position: absolute;
+    content: '';
+    /* 31*sqrt(2)/2.0 */
+    width: 21px;
+    height: 21px;
+    /* 以下２つは決め打ち */
+    left: 5px;
+    top: -12px;
+    /* 角だけ出して回転 */
+    border-top: solid 2px transparent;
+    border-right: solid 2px transparent;
+    border-bottom: solid 2px #000000;
+    border-left: solid 2px #000000;
+    transform: rotate(-45deg);
 }
 
 /* 各labelとinputを横に並べるため */
